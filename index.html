@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV fleet management dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>EV FLEET MANAGEMENT</h1>
+    <p>Manage, monitor, and maintain your electric vehicle fleet in real-time.</p>
+</div>
+
+<div class="container">
+    <!-- Fleet Overview Section -->
+    <div class="fleet-overview mb-4">
+        <h3>Fleet Overview</h3>
+        <div class="row">
+            <div class="col-md-3 overview-card">
+                <h5>Total Vehicles: <span id="total-vehicles">30</span></h5>
+                <p>In Transit: <span id="vehicles-in-transit">10</span></p>
+                <p>Charging: <span id="vehicles-charging">5</span></p>
+                <p>Idle: <span id="vehicles-idle">15</span></p>
+            </div>
+            <div class="col-md-3 overview-card">
+                <h5>Fleet Battery Health</h5>
+                <p>Average Battery: <span id="average-battery">79%</span></p>
+                <p>Vehicles below 20%: <span id="low-battery-count">3</span></p>
+                <p>Est. Full Charge Time: <span id="est-full-charge">3 hrs</span></p>
+            </div>
+            <div class="col-md-6">
+                <canvas id="fleet-trend-chart"></canvas> <!-- Placeholder for data visualization -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Vehicle Management Section -->
+    <div class="vehicle-management mb-4">
+        <h3>Vehicle Management</h3>
+        <button class="btn btn-primary mb-3" onclick="addVehicle()">Add Vehicle</button>
+        <div class="row" id="vehicle-cards">
+            <!-- Vehicle Card Template -->
+            <div class="col-md-4 vehicle-card" data-status="In Transit">
+                <div class="card">
+                    <h5 class="card-title">Vehicle 001</h5>
+                    <p class="vehicle-info">ID: <span class="vehicle-id">v001</span></p>
+                    <p class="battery-status">
+                        <span class="battery-label">Battery:</span> 
+                        <span class="battery-level">50%</span>
+                    </p>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 50%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p>Total Distance: <span class="distance-traveled">400 km</span></p>
+                    <p>Last Charged: <span class="last-charge-time">08:30 AM</span></p>
+                    <p>Status: <span class="vehicle-status">In Transit</span></p>
+                    <button class="btn btn-secondary btn-sm" onclick="editVehicle()">Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="removeVehicle()">Remove</button>
+                </div>
+            </div>
+            <!-- Additional vehicle cards can follow the same structure -->
+        </div>
+        <div class="row" id="vehicle-cards">
+            <!-- Vehicle Card Template -->
+            <div class="col-md-4 vehicle-card" data-status="In Transit">
+                <div class="card">
+                    <h5 class="card-title">Vehicle 002</h5>
+                    <p class="vehicle-info">ID: <span class="vehicle-id">v002</span></p>
+                    <p class="battery-status">
+                        <span class="battery-label">Battery:</span> 
+                        <span class="battery-level">45%</span>
+                    </p>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p>Total Distance: <span class="distance-traveled">420 km</span></p>
+                    <p>Last Charged: <span class="last-charge-time">10:30 AM</span></p>
+                    <p>Status: <span class="vehicle-status">Idle</span></p>
+                    <button class="btn btn-secondary btn-sm" onclick="editVehicle()">Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="removeVehicle()">Remove</button>
+                </div>
+            </div>
+            <!-- Additional vehicle cards can follow the same structure -->
+        </div>
+    </div>
+
+    <!-- Charging Schedule Management Section -->
+    <div class="charging-schedule mb-4">
+        <h3>Charging Schedule Management</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Vehicle ID</th>
+                    <th>Current Status</th>
+                    <th>Scheduled Charge Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>v001</td>
+                    <td>In Transit</td>
+                    <td><input type="time" class="form-control" /></td>
+                    <td><button class="btn btn-primary btn-sm" onclick="scheduleCharge()">Schedule</button></td>
+                </tr>
+                <!-- Additional columns for each vehicle -->
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>v002</td>
+                    <td>Idle</td>
+                    <td><input type="time" class="form-control" /></td>
+                    <td><button class="btn btn-primary btn-sm" onclick="scheduleCharge()">Schedule</button></td>
+                </tr>
+                <!-- Additional columns for each vehicle -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 EV Fleet Management System. All Rights Reserved.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script> <!-- JavaScript file for handling real-time updates, CRUD, and alerts -->
+</body>
+</html>

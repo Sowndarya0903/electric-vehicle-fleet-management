@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+.container {
+    margin-top: 30px;
+}
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #abbf16;
+}
+.header h1 {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+.fleet-overview h3, .vehicle-management h3, .charging-schedule h3 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.overview-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.vehicle-card {
+    margin-bottom: 20px;
+}
+.vehicle-card .card {
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.vehicle-card .battery-status {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.progress-bar {
+    height: 8px;
+    border-radius: 5px;
+}
+.battery-level {
+    font-weight: bold;
+    color: #555;
+}
+.low-battery {
+    color: #d9534f;
+}
+.charging-schedule table {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    color: #777;
+}
